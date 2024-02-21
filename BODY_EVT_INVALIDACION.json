@@ -1,0 +1,33 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Estructura de Body Evento de Invalidacion de DTEs",
+    "type": "object",
+    "properties": {
+        "ambiente": {
+            "description": "Ambiente de destino: 00 - Pruebas, 01 - Produccion",
+            "type": "string",
+            "enum": ["00","01"]
+        },
+        "version": {
+            "description": "Version del JSON Schema del Evento de invalidacion",
+            "type": "integer",
+            "enum": [2]
+        },
+        "idEnvio": {
+            "description": "Identificador de envio",
+            "type": "integer",
+            "minimum": 1
+        },
+        "documento": {
+            "description": "Documento de Evento de Invalidacion [firmado estandar JWS].",
+            "type": "string"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "version",
+        "ambiente",
+        "idEnvio",
+        "documento"
+    ]
+}
